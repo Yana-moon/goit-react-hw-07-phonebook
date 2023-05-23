@@ -33,4 +33,8 @@ export const ButtonForm = styled.button`
   border-radius: 4px;
   border-color: #0a4ff0;
   background-color: #f9fae6;
+  :hover,
+  :focus {
+    background-color: #7cc4eb;
+  }
 `;

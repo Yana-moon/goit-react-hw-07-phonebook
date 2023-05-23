@@ -20,7 +20,7 @@ const schema = yup.object().shape({
     .string()
     .trim()
     .max(64)
-    .required('Name is required')
+    .required('Number is required')
     .matches(nameRegex, {
       message:
         "Invalid name. Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan.",
