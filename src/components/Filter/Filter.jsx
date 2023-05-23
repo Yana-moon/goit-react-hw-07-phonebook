@@ -1,18 +1,13 @@
-//import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { getFilterContacts } from 'redux/selectors';
+import { setFilter } from 'redux/filter/filterSlice';
+import { getFilterContacts } from 'redux/filter/selectorsFilter';
 
 import { TextFilter, InputFilter, WrapperFilter } from './Filter.styled';
-export const Filter = () => {
+
+function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(getFilterContacts);
-
-  const handleFindName = evt => {
-    const { value } = evt.target;
-    dispatch(setFilter(value));
-  };
 
   return (
     <WrapperFilter>
@@ -22,7 +17,7 @@ export const Filter = () => {
           type="text"
           name="filter"
           placeholder="Enter name"
-          onChange={handleFindName}
+          onChange={event => dispatch(setFilter(event.currentTarget.value))}
           value={filter}
         />
       </label>
@@ -30,7 +25,4 @@ export const Filter = () => {
   );
 };
 
-//Filter.propTypes = {
- // onChangeFilter: PropTypes.func.isRequired,
- // valueFilter: PropTypes.string.isRequired,
-//};
+export default Filter;
